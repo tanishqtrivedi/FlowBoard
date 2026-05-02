@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FlowBoard | Project Tasks</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="auth-view" class="auth-layout">
+        <div class="auth-copy">
+          <p class="eyebrow">Project operations</p>
+          <h1>FlowBoard</h1>
+          <p>Manage teams, assign work, and keep project delivery visible from one focused workspace.</p>
+        </div>
+        <form id="auth-form" class="panel auth-panel">
+          <div class="auth-tabs" role="tablist">
+            <button class="tab active" type="button" data-mode="login">Login</button>
+            <button class="tab" type="button" data-mode="signup">Signup</button>
+          </div>
+          <label class="signup-only">
+            <span>Name</span>
+            <input name="name" autocomplete="name" minlength="2">
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="email" required>
+          </label>
+          <label>
+            <span>Password</span>
+            <input name="password" type="password" autocomplete="current-password" minlength="8" required>
+          </label>
+          <button class="primary" type="submit">Continue</button>
+          <p id="auth-message" class="form-message"></p>
+        </form>
+      </section>
+
+      <section id="app-view" class="workspace hidden">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">FlowBoard</p>
+            <h2>Project dashboard</h2>
+          </div>
+          <div class="user-chip">
+            <span id="user-label"></span>
+            <button id="logout-btn" class="ghost" type="button">Logout</button>
+          </div>
+        </header>
+
+        <section class="metrics" id="metrics"></section>
+
+        <section class="content-grid">
+          <div class="main-column">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Work queue</p>
+                <h3>Tasks</h3>
+              </div>
+              <select id="project-filter" aria-label="Filter tasks by project"></select>
+            </div>
+            <div id="task-list" class="task-list"></div>
+          </div>
+
+          <aside class="side-column">
+            <form id="project-form" class="panel admin-only">
+              <h3>Create project</h3>
+              <label>
+                <span>Name</span>
+                <input name="name" minlength="2" required>
+              </label>
+              <label>
+                <span>Description</span>
+                <textarea name="description" rows="3"></textarea>
+              </label>
+              <label>
+                <span>Team members</span>
+                <select name="memberIds" multiple size="5"></select>
+              </label>
+              <button class="primary" type="submit">Create project</button>
+            </form>
+
+            <form id="task-form" class="panel admin-only">
+              <h3>Create task</h3>
+              <label>
+                <span>Project</span>
+                <select name="projectId" required></select>
+              </label>
+              <label>
+                <span>Title</span>
+                <input name="title" minlength="2" required>
+              </label>
+              <label>
+                <span>Assignee</span>
+                <select name="assigneeId" required></select>
+              </label>
+              <label>
+                <span>Due date</span>
+                <input name="dueDate" type="date" required>
+              </label>
+              <label>
+                <span>Description</span>
+                <textarea name="description" rows="3"></textarea>
+              </label>
+              <button class="primary" type="submit">Create task</button>
+            </form>
+
+            <div class="panel">
+              <h3>Projects</h3>
+              <div id="project-list" class="project-list"></div>
+            </div>
+          </aside>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

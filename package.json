@@ -1,0 +1,21 @@
+{
+  "name": "project-task-rbac",
+  "version": "1.0.0",
+  "description": "Project and task management web app with REST APIs, file-backed NoSQL database, and role-based access control.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "project-management",
+    "tasks",
+    "rbac",
+    "railway"
+  ],
+  "license": "MIT"
+}
