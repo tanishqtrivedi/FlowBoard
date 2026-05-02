@@ -88,8 +88,8 @@ TOKEN_SECRET=<strong-random-secret>
 
 ## Submission
 
-- Live URL: `TODO: add Railway URL`
-- GitHub repo: `TODO: add GitHub repository URL`
+- Live URL: `flowboard-production-d18e.up.railway.app`
+- GitHub repo: `[TODO: add GitHub repository URL](https://github.com/tanishqtrivedi/FlowBoard)`
 
 ## Notes
 
