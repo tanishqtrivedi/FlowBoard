@@ -183,7 +183,8 @@ $$(".tab").forEach((tab) => tab.addEventListener("click", () => setAuthMode(tab.
 
 $("#auth-form").addEventListener("submit", async (event) => {
   event.preventDefault();
-  const form = new FormData(event.currentTarget);
+  const formElement = event.currentTarget;
+  const form = new FormData(formElement);
   const payload = Object.fromEntries(form.entries());
   $("#auth-message").textContent = "";
   try {
@@ -194,7 +195,7 @@ $("#auth-form").addEventListener("submit", async (event) => {
     state.token = data.token;
     state.user = data.user;
     localStorage.setItem("flowboard.token", state.token);
-    event.currentTarget.reset();
+    formElement.reset();
     await loadApp();
   } catch (error) {
     $("#auth-message").textContent = error.message;
